@@ -23,7 +23,20 @@ public class ProductDBContext extends DBContext<Product> {
     public void insert(Product model) {
         try {
             connection.setAutoCommit(false);
-            String sql = "";
+            String sql = "INSERT INTO [Product]\n"
+                    + "(product_id\n"
+                    + ",product_name\n"
+                    + ",[status]\n"
+                    + ",price_in\n"
+                    + ",price_out\n"
+                    + ",guarantee)\n"
+                    + "VALUES\n"
+                    + "(?\n"
+                    + ",?\n"
+                    + ",?\n"
+                    + ",?\n"
+                    + ",?\n"
+                    + ",?)";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, model.getProduct_name());
             stm.setString(2, model.getStatus());
@@ -53,7 +66,14 @@ public class ProductDBContext extends DBContext<Product> {
     public void update(Product model) {
         try {
             connection.setAutoCommit(false);
-            String sql = "";
+            String sql = "UPDATE [Product] \n"
+                    + "SET \n"
+                    + "product_name = ?\n"
+                    + ",[status] = ?\n"
+                    + ",price_in = ?\n"
+                    + ",price_out = ?\n"
+                    + ",guarantee = ?\n"
+                    + "WHERE [product_id] = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, model.getProduct_name());
             stm.setString(2, model.getStatus());
@@ -82,7 +102,8 @@ public class ProductDBContext extends DBContext<Product> {
     @Override
     public void delete(Product model) {
         try {
-            String sql = "";
+            String sql = "DELETE [Product]\n"
+                    + "WHERE product_id = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, model.getProduct_id());
             stm.executeUpdate();
