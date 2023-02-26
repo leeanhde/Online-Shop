@@ -20,9 +20,6 @@ public abstract class DBContext<T> {
     private final String userID = "anhde";
     private final String password = "anhde";
 
-    public DBContext() {
-
-    }
 
     public Connection getConnection() throws Exception {
         String url = "jdbc:sqlserver:// " + serverName + ":" + portNumber + ";databaseName=" + dbName;

@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/src/java/Controller/Product/List.java</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/web/product/insert.jsp</file>
             <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/src/java/Dal/ProductDBContext.java</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/web/index.html</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/web/product/list.jsp</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/src/java/Dal/DBContext.java</file>
         </group>
     </open-files>
 </project-private>

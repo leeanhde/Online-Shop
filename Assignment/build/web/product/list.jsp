@@ -3,7 +3,7 @@
     Created on : Feb 23, 2023, 1:42:32 AM
     Author     : anhde
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +12,32 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <table>
+            <tr>
+                <td>Product ID</td>
+                <td>Product Name</td>
+                <td>Status</td>
+                <td>Price In</td>
+                <td>Price Out</td>
+                <td>Guarantee</td>
+                <td></td>
+            </tr>
+            <c:forEach items="${requestScope.product}" var="p">
+                <tr>
+                    <td>${p.product_id}</td>
+                    <td>${p.product_name}</td>
+                    <td>${p.status}</td>
+                    <td>${p.price_in}</td>
+                    <td>${p.price_out}</td>
+                    <td>
+                        <a href="update?id=${p.id}">Edit</a>
+                    </td>
+                    <td>
+                        <a href="#" onclick="removeStudent(${s.id})">Delete</a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+        <a href="insert">Insert</a>
     </body>
 </html>
