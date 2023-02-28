@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>List</title>
     </head>
     <body>
         <table>
@@ -29,6 +29,7 @@
                     <td>${p.status}</td>
                     <td>${p.price_in}</td>
                     <td>${p.price_out}</td>
+                    <td>${p.guarantee}</td>
                     <td>
                         <a href="update?id=${p.id}">Edit</a>
                     </td>
@@ -38,6 +39,6 @@
                 </tr>
             </c:forEach>
         </table>
-        <a href="insert">Insert</a>
+        <a href="insert.jsp">Insert</a>
     </body>
 </html>

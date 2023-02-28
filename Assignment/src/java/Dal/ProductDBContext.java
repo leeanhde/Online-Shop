@@ -150,7 +150,8 @@ public class ProductDBContext extends DBContext<Product> {
     @Override
     public ArrayList<Product> list() {
         ArrayList<Product> products = new ArrayList<>();
-        String sql = "SELECT * FROM Product";
+        String sql = "SELECT product_id, product_name, status, price_in, price_out, guarantee"
+                + " FROM Product";
         try {
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
