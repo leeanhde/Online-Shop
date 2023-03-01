@@ -12,17 +12,33 @@
         <servlet-name>Insert</servlet-name>
         <servlet-class>Controller.Product.Insert</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Update</servlet-name>
+        <servlet-class>Controller.Product.Update</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Delete</servlet-name>
+        <servlet-class>Controller.Product.Delete</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>List</servlet-name>
-        <url-pattern>/productlist</url-pattern>
+        <url-pattern>/List</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Insert</servlet-name>
         <url-pattern>/Insert</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Update</servlet-name>
+        <url-pattern>/Update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Delete</servlet-name>
+        <url-pattern>/Delete</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

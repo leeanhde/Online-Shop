@@ -11,13 +11,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
+
 
 /**
  *
  * @author anhde
  */
-public class List extends HttpServlet {
+public class Delete extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,10 +30,13 @@ public class List extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+       int id = Integer.parseInt(request.getParameter("id"));
         ProductDBContext db = new ProductDBContext();
-        ArrayList<Product> list = db.list();
-        request.setAttribute("products", list);
-        request.getRequestDispatcher("../product/list.jsp").forward(request, response);
+        Product p = db.get(id);
+        db.delete(p);
+        response.sendRedirect("list");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

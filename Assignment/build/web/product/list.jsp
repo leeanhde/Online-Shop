@@ -22,7 +22,7 @@
                 <td>Guarantee</td>
                 <td></td>
             </tr>
-            <c:forEach items="${requestScope.product}" var="p">
+            <c:forEach items="${requestScope.products}" var="p">
                 <tr>
                     <td>${p.product_id}</td>
                     <td>${p.product_name}</td>
@@ -34,7 +34,7 @@
                         <a href="update?id=${p.id}">Edit</a>
                     </td>
                     <td>
-                        <a href="#" onclick="removeStudent(${s.id})">Delete</a>
+                        <a href="#" onclick="remove(${p.id})">Delete</a>
                     </td>
                 </tr>
             </c:forEach>

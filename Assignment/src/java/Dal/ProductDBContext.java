@@ -18,7 +18,19 @@ import java.util.logging.Logger;
  * @author anhde
  */
 public class ProductDBContext extends DBContext<Product> {
-
+    
+    public void search(){
+        
+        try {
+            String sql="";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
     @Override
     public void insert(Product model) {
         try {
@@ -150,8 +162,7 @@ public class ProductDBContext extends DBContext<Product> {
     @Override
     public ArrayList<Product> list() {
         ArrayList<Product> products = new ArrayList<>();
-        String sql = "SELECT product_id, product_name, status, price_in, price_out, guarantee"
-                + " FROM Product";
+        String sql = "SELECT * FROM Product";
         try {
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
