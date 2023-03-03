@@ -12,7 +12,7 @@
         <title>List</title>
     </head>
     <body>
-        <table>
+        <table boder = 1px>
             <tr>
                 <td>Product ID</td>
                 <td>Product Name</td>

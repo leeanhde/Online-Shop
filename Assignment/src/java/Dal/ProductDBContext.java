@@ -35,26 +35,10 @@ public class ProductDBContext extends DBContext<Product> {
     public void insert(Product model) {
         try {
             connection.setAutoCommit(false);
-            String sql = "INSERT INTO [Product]\n"
-                    + "(product_id\n"
-                    + ",product_name\n"
-                    + ",[status]\n"
-                    + ",price_in\n"
-                    + ",price_out\n"
-                    + ",guarantee)\n"
-                    + "VALUES\n"
-                    + "(?\n"
-                    + ",?\n"
-                    + ",?\n"
-                    + ",?\n"
-                    + ",?\n"
-                    + ",?)";
+            String sql = "";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, model.getProduct_name());
-            stm.setString(2, model.getStatus());
-            stm.setInt(3, model.getPrice_in());
-            stm.setInt(4, model.getPrice_out());
-            stm.setDate(5, model.getGuarantee());
+            
             stm.setInt(6, model.getProduct_id());
             stm.executeUpdate();
             connection.commit();
@@ -78,20 +62,10 @@ public class ProductDBContext extends DBContext<Product> {
     public void update(Product model) {
         try {
             connection.setAutoCommit(false);
-            String sql = "UPDATE [Product] \n"
-                    + "SET \n"
-                    + "product_name = ?\n"
-                    + ",[status] = ?\n"
-                    + ",price_in = ?\n"
-                    + ",price_out = ?\n"
-                    + ",guarantee = ?\n"
-                    + "WHERE [product_id] = ?";
+            String sql = "";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, model.getProduct_name());
-            stm.setString(2, model.getStatus());
-            stm.setInt(3, model.getPrice_in());
-            stm.setInt(4, model.getPrice_out());
-            stm.setDate(5, model.getGuarantee());
+            
             stm.setInt(6, model.getProduct_id());
             stm.executeUpdate();
             connection.commit();
@@ -137,17 +111,12 @@ public class ProductDBContext extends DBContext<Product> {
                     p = new Product();
                     int product_id = rs.getInt("product_id");
                     String product_name = rs.getString("product_name");
-                    String status = rs.getString("status");
-                    int price_in = rs.getInt("price_in");
-                    int price_out = rs.getInt("price_out");
-                    Date guarantee = rs.getDate("guarantee");
+                    
+                    
 
                     p.setProduct_id(product_id);
                     p.setProduct_name(product_name);
-                    p.setStatus(status);
-                    p.setPrice_in(price_in);
-                    p.setPrice_out(price_out);
-                    p.setGuarantee(guarantee);
+                    
                 }
 
             }
@@ -170,17 +139,8 @@ public class ProductDBContext extends DBContext<Product> {
                 Product p = new Product();
                 int product_id = rs.getInt("product_id");
                 String product_name = rs.getString("product_name");
-                String status = rs.getString("status");
-                int price_in = rs.getInt("price_in");
-                int price_out = rs.getInt("price_out");
-                Date guarantee = rs.getDate("guarantee");
-
                 p.setProduct_id(product_id);
-                p.setProduct_name(product_name);
-                p.setStatus(status);
-                p.setPrice_in(price_in);
-                p.setPrice_out(price_out);
-                p.setGuarantee(guarantee);
+                p.setProduct_name(product_name);              
                 products.add(p);
             }
         } catch (SQLException e) {

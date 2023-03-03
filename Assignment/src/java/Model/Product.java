@@ -13,10 +13,18 @@ import java.sql.Date;
 public class Product {
     private int product_id;
     private String product_name;
-    private String status;
-    private int price_in;
-    private int price_out;
-    private Date guarantee;
+    private int price;
+    private String description;
+
+    public Product() {
+    }
+
+    public Product(int product_id, String product_name, int price, String description) {
+        this.product_id = product_id;
+        this.product_name = product_name;
+        this.price = price;
+        this.description = description;
+    }
 
     public int getProduct_id() {
         return product_id;
@@ -34,36 +42,22 @@ public class Product {
         this.product_name = product_name;
     }
 
-    public String getStatus() {
-        return status;
+    public int getPrice() {
+        return price;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public int getPrice_in() {
-        return price_in;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPrice_in(int price_in) {
-        this.price_in = price_in;
+    public void setDescription(String description) {
+        this.description = description;
     }
-
-    public int getPrice_out() {
-        return price_out;
-    }
-
-    public void setPrice_out(int price_out) {
-        this.price_out = price_out;
-    }
-
-    public Date getGuarantee() {
-        return guarantee;
-    }
-
-    public void setGuarantee(Date guarantee) {
-        this.guarantee = guarantee;
-    }
+    
+    
     
 }

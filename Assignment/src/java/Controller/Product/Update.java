@@ -11,9 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
-import java.util.ArrayList;
 
 
 /**
@@ -48,11 +46,6 @@ public class Update extends HttpServlet {
         Product p = new Product();
         p.setProduct_name(request.getParameter("product_name"));
         p.setProduct_id(Integer.parseInt(request.getParameter("product_id")));
-        p.setStatus(request.getParameter("status"));
-        p.setPrice_in(Integer.parseInt(request.getParameter("price_in")));
-        p.setPrice_out(Integer.parseInt(request.getParameter("price_out")));
-        p.setGuarantee(Date.valueOf(request.getParameter("guarantee")));
-        
         ProductDBContext db  = new ProductDBContext();
         db.update(p);
         
