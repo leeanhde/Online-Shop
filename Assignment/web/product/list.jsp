@@ -12,33 +12,27 @@
         <title>List</title>
     </head>
     <body>
-        <table boder = 1px>
-            <tr>
-                <td>Product ID</td>
-                <td>Product Name</td>
-                <td>Status</td>
-                <td>Price In</td>
-                <td>Price Out</td>
-                <td>Guarantee</td>
-                <td></td>
-            </tr>
+        <table border = 1px>
+            <td>product id</td>
+            <td>product name</td>
+            <td>price</td>
+            <td>description</td>
+            <td></td>
+            
+            
             <c:forEach items="${requestScope.products}" var="p">
                 <tr>
                     <td>${p.product_id}</td>
                     <td>${p.product_name}</td>
-                    <td>${p.status}</td>
-                    <td>${p.price_in}</td>
-                    <td>${p.price_out}</td>
-                    <td>${p.guarantee}</td>
+                    <td>${p.price}</td>
+                    <td>${p.description}</td>
                     <td>
-                        <a href="update?id=${p.id}">Edit</a>
+                        <a href="update?id=${s.id}">Edit</a>
                     </td>
-                    <td>
-                        <a href="#" onclick="remove(${p.id})">Delete</a>
-                    </td>
+                    
                 </tr>
             </c:forEach>
         </table>
-        <a href="insert.jsp">Insert</a>
+        <a href="insert">Insert</a>
     </body>
 </html>

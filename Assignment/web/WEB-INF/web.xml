@@ -26,19 +26,19 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>List</servlet-name>
-        <url-pattern>/List</url-pattern>
+        <url-pattern>/product/list</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Insert</servlet-name>
-        <url-pattern>/Insert</url-pattern>
+        <url-pattern>/product/insert</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Update</servlet-name>
-        <url-pattern>/Update</url-pattern>
+        <url-pattern>/product/update</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Delete</servlet-name>
-        <url-pattern>/Delete</url-pattern>
+        <url-pattern>/product/delete</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

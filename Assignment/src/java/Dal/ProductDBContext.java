@@ -131,7 +131,7 @@ public class ProductDBContext extends DBContext<Product> {
     @Override
     public ArrayList<Product> list() {
         ArrayList<Product> products = new ArrayList<>();
-        String sql = "SELECT * FROM Product";
+        String sql = "SELECT  product_id,product_name, price, [description] FROM Product";
         try {
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
@@ -139,8 +139,12 @@ public class ProductDBContext extends DBContext<Product> {
                 Product p = new Product();
                 int product_id = rs.getInt("product_id");
                 String product_name = rs.getString("product_name");
+                int price = rs.getInt("price");
+                String description = rs.getString("description");
                 p.setProduct_id(product_id);
-                p.setProduct_name(product_name);              
+                p.setProduct_name(product_name);     
+                p.setPrice(price);
+                p.setDescription(description);
                 products.add(p);
             }
         } catch (SQLException e) {
