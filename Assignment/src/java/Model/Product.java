@@ -4,8 +4,6 @@
  */
 package Model;
 
-import java.sql.Date;
-
 /**
  *
  * @author anhde
@@ -15,17 +13,7 @@ public class Product {
     private String product_name;
     private int price;
     private String description;
-
-    public Product() {
-    }
-
-    public Product(int product_id, String product_name, int price, String description) {
-        this.product_id = product_id;
-        this.product_name = product_name;
-        this.price = price;
-        this.description = description;
-    }
-
+    
     public int getProduct_id() {
         return product_id;
     }

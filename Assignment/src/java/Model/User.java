@@ -15,16 +15,7 @@ public class User {
     private String email;
     private int phone;
 
-    public User() {
-    }
-
-    public User(int user_id, String name, String password, String email, int phone) {
-        this.user_id = user_id;
-        this.name = name;
-        this.password = password;
-        this.email = email;
-        this.phone = phone;
-    }
+    
 
     public int getUser_id() {
         return user_id;

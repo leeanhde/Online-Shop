@@ -18,8 +18,7 @@
             <td>price</td>
             <td>description</td>
             <td></td>
-            
-            
+       
             <c:forEach items="${requestScope.products}" var="p">
                 <tr>
                     <td>${p.product_id}</td>
@@ -27,7 +26,7 @@
                     <td>${p.price}</td>
                     <td>${p.description}</td>
                     <td>
-                        <a href="update?id=${s.id}">Edit</a>
+                        <a href="update?product_id=${p.product_id}">Edit</a>
                     </td>
                     
                 </tr>

@@ -23,40 +23,29 @@ public class Update extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("product_id"));
         ProductDBContext db = new ProductDBContext();
         Product p = db.get(id);
-        
-        
-        
+        request.setAttribute("products", p);
         request.getRequestDispatcher("../product/update.jsp").forward(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Product p = new Product();
+        
         p.setProduct_name(request.getParameter("product_name"));
         p.setProduct_id(Integer.parseInt(request.getParameter("product_id")));
+        p.setPrice(Integer.parseInt(request.getParameter("price")));
+        p.setDescription(request.getParameter("description"));
+        
         ProductDBContext db  = new ProductDBContext();
         db.update(p);
-        
         response.sendRedirect("list");
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";

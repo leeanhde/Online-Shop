@@ -3,15 +3,21 @@
     Created on : Feb 23, 2023, 1:37:10 AM
     Author     : anhde
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Update</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <form action="update" method="POST">
+            Product Name: <input type="text" value="${requestScope.product.product_name}" name="product_name" ><br>
+            Price:  <input type="number" name="price"><br>
+            Description: <input type="text" name="description"><br>
+            Type: <input type="text" value="${requestScope.categories.c_name}" name="type"><br>
+            <input type="submit" value="Save">
+        </form>
     </body>
 </html>
