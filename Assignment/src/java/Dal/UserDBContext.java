@@ -41,7 +41,7 @@ public class UserDBContext extends DBContext<User> {
     @Override
     public ArrayList<User> list() {
         ArrayList<User> users = new ArrayList<>();
-        String sql = "Select * from user";
+        String sql = "Select * from [User]";
         try {
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();

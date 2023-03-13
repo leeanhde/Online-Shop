@@ -13,11 +13,11 @@
     </head>
     <body>
         <form action="insert" method="POST">
+            Product ID: <input type="number" name="product_id"><br>
+            Categories ID: <input type="number" name="c_id"><br>
             Product Name: <input type="text" id="name" name="name"><br>
-            Status: <input type="text" name="status" id="status"><br>
-            Price In: <input type="number" id="in" name="price_in"><br>
-            Price Out: <input type="number" name="price_out" id="out"><br>
-            Guarantee: <input type="date" name="guarantee" id="guarantee">
+            Price: <input type="number" name="price"><br>
+            Description <input type="text" name="description"><br>
             <input type="submit" value="Save">
         </form>
     </body>

@@ -19,6 +19,7 @@
             <td>Email</td>
             <td>Phone</td>
             <td></td>
+            <td></td>
             <c:forEach items="${requestScope.users}" var="u">
                 <tr>
                     <td>${u.user_id}</td>
@@ -28,7 +29,10 @@
                     <td>${u.phone}</td>
                     <td>
                         <a href="update?user_id=${u.user_id}">Edit</a>
-                    </td>                   
+                    </td>     
+                    <td>
+                        <a href="delete?user_id=${u.user_id}">Delete</a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>

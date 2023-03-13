@@ -10,9 +10,18 @@ package Model;
  */
 public class Product {
     private int product_id;
+    private int c_id;
     private String product_name;
     private int price;
     private String description;
+
+    public int getC_id() {
+        return c_id;
+    }
+
+    public void setC_id(int c_id) {
+        this.c_id = c_id;
+    }
     
     public int getProduct_id() {
         return product_id;

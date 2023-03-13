@@ -34,7 +34,6 @@ public class Insert extends HttpServlet {
         ProductDBContext db = new ProductDBContext();
         ArrayList<Product> list = db.list();
         request.setAttribute("products", list);
-
         request.getRequestDispatcher("../product/insert.jsp").forward(request, response);
     }
 
@@ -44,6 +43,10 @@ public class Insert extends HttpServlet {
         Product p = new Product();
         p.setProduct_id(Integer.parseInt(request.getParameter("product_id")));
         p.setProduct_name(request.getParameter("product_name"));
+        p.setC_id(Integer.parseInt(request.getParameter("c_id")));
+        p.setPrice(Integer.parseInt(request.getParameter("price")));
+        p.setDescription(request.getParameter("description"));
+        
         ProductDBContext db = new ProductDBContext();
         db.insert(p);
 

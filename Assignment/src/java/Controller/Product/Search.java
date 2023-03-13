@@ -4,8 +4,6 @@
  */
 package Controller.Product;
 
-import Dal.ProductDBContext;
-import Model.Product;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,25 +14,10 @@ import java.io.IOException;
  *
  * @author anhde
  */
-public class Delete extends HttpServlet {
+public class Search extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        int id = Integer.parseInt(request.getParameter("product_id"));
-        ProductDBContext db = new ProductDBContext();
-        Product p = db.get(id);
-        db.delete(p);
-        response.sendRedirect("list");
 
     }
 

@@ -13,10 +13,11 @@
     </head>
     <body>
         <form action="update" method="POST">
-            Product Name: <input type="text" value="${requestScope.product.product_name}" name="product_name" ><br>
+            Product ID: <input type="number" name="product_id"><br>
+            Categories ID:<input type="number" name="c_id"><br>
+            Product Name: <input type="text" name="product_name" ><br>
             Price:  <input type="number" name="price"><br>
             Description: <input type="text" name="description"><br>
-            Type: <input type="text" value="${requestScope.categories.c_name}" name="type"><br>
             <input type="submit" value="Save">
         </form>
     </body>

@@ -9,26 +9,35 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>List</title>
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <div id="logo">
+            <img src="" alt="background-header">
+        </div>
+
         <table border = 1px>
-            <td>product id</td>
-            <td>product name</td>
-            <td>price</td>
-            <td>description</td>
+            <td>Product ID</td>
+            <td>Categories ID</td>
+            <td>Product Name</td>
+            <td>Price</td>
+            <td>Description</td>
             <td></td>
-       
+            <td></td>
             <c:forEach items="${requestScope.products}" var="p">
                 <tr>
                     <td>${p.product_id}</td>
+                    <td>${p.c_id}</td>
                     <td>${p.product_name}</td>
                     <td>${p.price}</td>
                     <td>${p.description}</td>
                     <td>
                         <a href="update?product_id=${p.product_id}">Edit</a>
                     </td>
-                    
+                    <td>
+                        <a href="delete?product_id=${p.product_id}">Delete</a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>

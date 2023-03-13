@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>LoginController</servlet-name>
-        <servlet-class>Controller.LoginController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>List</servlet-name>
         <servlet-class>Controller.Product.List</servlet-class>
     </servlet>
@@ -24,10 +20,26 @@
         <servlet-name>ListUser</servlet-name>
         <servlet-class>Controller.User.ListUser</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>LoginController</servlet-name>
-        <url-pattern>/LoginController</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateUser</servlet-name>
+        <servlet-class>Controller.User.UpdateUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertUser</servlet-name>
+        <servlet-class>Controller.User.InsertUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteUser</servlet-name>
+        <servlet-class>Controller.User.DeleteUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>Controller.Product.Search</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchUser</servlet-name>
+        <servlet-class>Controller.User.SearchUser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>List</servlet-name>
         <url-pattern>/product/list</url-pattern>
@@ -47,6 +59,26 @@
     <servlet-mapping>
         <servlet-name>ListUser</servlet-name>
         <url-pattern>/user/listuser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateUser</servlet-name>
+        <url-pattern>/user/updateuser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertUser</servlet-name>
+        <url-pattern>/user/insertuser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteUser</servlet-name>
+        <url-pattern>/user/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchUser</servlet-name>
+        <url-pattern>/searchuser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
