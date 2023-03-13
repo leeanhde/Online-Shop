@@ -40,15 +40,31 @@ public class ProductDBContext extends DBContext<Product> {
     public void insert(Product model) {
         try {
             connection.setAutoCommit(false);
-            String sql = "Insert into Product(product_id, c_id, product_name, price, [description])\n"
-                    + "Values('?', '?', '?', '?', '?')";
+            String sql = "INSERT INTO [Product]\n "
+                    + "(c_id\n"
+                    + ", product_name\n"
+                    + ", price\n"
+                    + ", description)\n"
+                    + "VALUES \n"
+                    + "(?\n"
+                    + ",?\n"
+                    + ",?\n"
+                    + ",?)";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, model.getProduct_id());
-            stm.setInt(2, model.getC_id());
-            stm.setString(3, model.getProduct_name());
-            stm.setInt(4, model.getPrice());
-            stm.setString(5, model.getDescription());
+
+            stm.setInt(1, model.getC_id());
+            stm.setString(2, model.getProduct_name());
+            stm.setInt(3, model.getPrice());
+            stm.setString(4, model.getDescription());
             stm.executeUpdate();
+
+            String sql_get_product_id = "SSELECT @@IDENTITY as [product_id]";
+            PreparedStatement stm_get_id = connection.prepareStatement(sql_get_product_id);
+            ResultSet rs = stm_get_id.executeQuery();
+            if (rs.next()) {
+                model.setProduct_id(rs.getInt("product_id"));
+            }
+
             connection.commit();
         } catch (SQLException e) {
             try {
@@ -118,7 +134,7 @@ public class ProductDBContext extends DBContext<Product> {
     @Override
     public Product get(int id) {
         try {
-            String sql = "SELECT  product_id,product_name, price, [description]\n"
+            String sql = "SELECT  product_id,c_id,product_name, price, [description]\n"
                     + "FROM Product \n"
                     + "WHERE product_id = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
@@ -155,22 +171,18 @@ public class ProductDBContext extends DBContext<Product> {
     @Override
     public ArrayList<Product> list() {
         ArrayList<Product> products = new ArrayList<>();
-        String sql = "SELECT  product_id, c_id, product_name, price, [description] FROM Product";
         try {
+            String sql = "SELECT  product_id, c_id, product_name, price, [description] "
+                    + "FROM Product";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Product p = new Product();
-                int product_id = rs.getInt("product_id");
-                int c_id = rs.getInt("c_id");
-                String product_name = rs.getString("product_name");
-                int price = rs.getInt("price");
-                String description = rs.getString("description");
-                p.setProduct_id(product_id);
-                p.setC_id(c_id);
-                p.setProduct_name(product_name);
-                p.setPrice(price);
-                p.setDescription(description);
+                p.setProduct_id(rs.getInt("product_id"));
+                p.setC_id(rs.getInt("c_id"));
+                p.setProduct_name(rs.getString("product_name"));
+                p.setPrice(rs.getInt("price"));
+                p.setDescription(rs.getString("description"));
                 products.add(p);
             }
         } catch (SQLException e) {

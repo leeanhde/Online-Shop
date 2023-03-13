@@ -19,21 +19,13 @@ import java.util.ArrayList;
  */
 public class Insert extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ProductDBContext db = new ProductDBContext();
         ArrayList<Product> list = db.list();
         request.setAttribute("products", list);
+
         request.getRequestDispatcher("../product/insert.jsp").forward(request, response);
     }
 
@@ -41,12 +33,12 @@ public class Insert extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Product p = new Product();
-        p.setProduct_id(Integer.parseInt(request.getParameter("product_id")));
+
         p.setProduct_name(request.getParameter("product_name"));
         p.setC_id(Integer.parseInt(request.getParameter("c_id")));
         p.setPrice(Integer.parseInt(request.getParameter("price")));
         p.setDescription(request.getParameter("description"));
-        
+
         ProductDBContext db = new ProductDBContext();
         db.insert(p);
 
