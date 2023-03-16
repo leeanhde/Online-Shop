@@ -33,8 +33,9 @@ public class Insert extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Product p = new Product();
-        p.setProduct_name(request.getParameter("product_name"));
+        p.setProduct_id(Integer.parseInt(request.getParameter("product_id")));
         p.setC_id(Integer.parseInt(request.getParameter("c_id")));
+        p.setProduct_name(request.getParameter("product_name"));
         p.setPrice(Integer.parseInt(request.getParameter("price")));
         p.setDescription(request.getParameter("description"));
 

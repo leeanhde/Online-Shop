@@ -27,7 +27,7 @@ public class InsertUser extends HttpServlet {
         ArrayList<User> list = db.list();
         request.setAttribute("user", list);
         
-        request.getRequestDispatcher("../user/listuser.jsp").forward(request, response);
+        request.getRequestDispatcher("../user/insertuser.jsp").forward(request, response);
     }
 
   
@@ -36,6 +36,7 @@ public class InsertUser extends HttpServlet {
             throws ServletException, IOException {
         User u = new User();
         
+        u.setUser_id(Integer.parseInt(request.getParameter("user_id")));
         u.setName(request.getParameter("name"));
         u.setEmail(request.getParameter("email"));
         u.setPassword(request.getParameter("password"));

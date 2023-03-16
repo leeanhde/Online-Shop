@@ -4,7 +4,9 @@
  */
 package Controller.Product;
 
+import Dal.CategoriesDBContext;
 import Dal.ProductDBContext;
+import Model.Categories;
 import Model.Product;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -22,6 +24,9 @@ public class List extends HttpServlet {
             throws ServletException, IOException {
         ProductDBContext db = new ProductDBContext();
         ArrayList<Product> list = db.list();
+        CategoriesDBContext caDB = new CategoriesDBContext();
+        ArrayList<Categories> calist = caDB.list();
+        request.setAttribute("cate", calist);
         request.setAttribute("products", list);
         request.getRequestDispatcher("../product/list.jsp").forward(request, response);
     }

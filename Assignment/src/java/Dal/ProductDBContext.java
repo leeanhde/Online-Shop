@@ -34,30 +34,15 @@ public class ProductDBContext extends DBContext<Product> {
     @Override
     public void insert(Product model) {
         try {
-            String sql = "INSERT INTO [Product]\n "
-                    + "( [c_id]\n"
-                    + ", [product_name]\n"
-                    + ", [price]\n"
-                    + ", [description])\n"
-                    + "VALUES \n"
-                    + "(?\n"
-                    + ",?\n"
-                    + ",?\n"
-                    + ",?)";
+            String sql = "INSERT INTO [Product] (product_id, c_id, product_name, price, [description])\n"
+                    + "VALUES (?, ?, ? ,? ,?)";
             PreparedStatement stm = connection.prepareStatement(sql);
-
-            stm.setInt(1, model.getC_id());
-            stm.setString(2, model.getProduct_name());
-            stm.setInt(3, model.getPrice());
-            stm.setString(4, model.getDescription());
+            stm.setInt(1, model.getProduct_id());
+            stm.setInt(2, model.getC_id());
+            stm.setString(3, model.getProduct_name());
+            stm.setInt(4, model.getPrice());
+            stm.setString(5, model.getDescription());
             stm.executeUpdate();
-
-            String sql_get_product_id = "SELECT @@IDENTITY as [product_id]";
-            PreparedStatement stm_get_id = connection.prepareStatement(sql_get_product_id);
-            ResultSet rs = stm_get_id.executeQuery();
-            if (rs.next()) {
-                model.setProduct_id(rs.getInt("product_id"));
-            }
         } catch (SQLException e) {
             Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -66,7 +51,7 @@ public class ProductDBContext extends DBContext<Product> {
     @Override
     public void update(Product model) {
         try {
-            String sql = "UPDATE [Product] SET [c_id] = ?,[product_name] = ?,[price] = ?,[description]= ? WHERE [product_id]  = ?";
+            String sql = "Update [Product] set [product_name] = ? , c_id = ?, price = ?, [description] = ? Where product_id = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, model.getProduct_name());
             stm.setInt(2, model.getC_id());
@@ -95,7 +80,7 @@ public class ProductDBContext extends DBContext<Product> {
     @Override
     public Product get(int id) {
         try {
-            String sql = "SELECT  product_id,c_id,product_name, price, [description]\n"
+            String sql = "SELECT *\n"
                     + "FROM Product \n"
                     + "WHERE product_id = ?";
             PreparedStatement stm = connection.prepareStatement(sql);

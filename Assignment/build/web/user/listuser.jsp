@@ -36,6 +36,6 @@
                 </tr>
             </c:forEach>
         </table>
-        <a href="insert">Insert</a>
+        <a href="insertuser">Insert</a>
     </body>
 </html>

@@ -12,10 +12,13 @@
         <title>Insert</title>
     </head>
     <body>
-        User ID: <input type="text" name="user_id"value="${param.user_id}">
-        User Name: <input type="text" name="name">
-        Password: <input type="text" name="password">
-        Email: <input type="text" name="email"><!-- comment -->
-        Phone: <input type="number" name="phone">
+        <form action="insertuser" method="post">
+            User ID: <input type="number" name="user_id"><br>
+            User Name: <input type="text" name="name"><br>
+            Password: <input type="text" name="password"><br>
+            Email: <input type="text" name="email"><br>
+            Phone: <input type="number" name="phone"><br>
+            <input type="submit" value="Save">
+        </form>
     </body>
 </html>

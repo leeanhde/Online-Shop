@@ -17,23 +17,34 @@
             <img src="" alt="background-header">
         </div>
 
-        <table border = 1px>
-            <td>Product ID</td>
-            <td>Categories ID</td>
-            <td>Product Name</td>
-            <td>Price</td>
-            <td>Description</td>
-            <td></td>
-            <td></td>
+        <table border="1px">
+            <tr>
+                <td>Product ID</td>
+                <td>Product Name</td>
+                <td>Category ID</td>
+                <td>Category Name</td>
+                <td>Price</td>
+                <td>Description</td>
+                <td></td>
+                <td></td> 
+            </tr>
+
             <c:forEach items="${requestScope.products}" var="p">
                 <tr>
                     <td>${p.product_id}</td>
-                    <td>${p.c_id}</td>
                     <td>${p.product_name}</td>
+                    <td>${p.c_id}</td>
+                    <td>
+                        <c:forEach items="${requestScope.cate}" var="c">
+                            <c:if test="${c.c_id == p.c_id}">
+                                ${c.c_name}
+                            </c:if>
+                        </c:forEach>
+                    </td>
                     <td>${p.price}</td>
                     <td>${p.description}</td>
                     <td>
-                        <a href="update?product_id=${p.product_id}">Update</a>
+                        <a href="update?product_id=${p.product_id}">Edit</a>
                     </td>
                     <td>
                         <a href="delete?product_id=${p.product_id}">Delete</a>
@@ -41,6 +52,8 @@
                 </tr>
             </c:forEach>
         </table>
+
+
         <a href="insert">Insert</a>
     </body>
 </html>

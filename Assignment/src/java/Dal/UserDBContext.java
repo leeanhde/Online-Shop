@@ -24,18 +24,12 @@ public class UserDBContext extends DBContext<User> {
             String sql = "INSERT INTO [User](user_id, [name], email, [password], phone)\n"
                     + "Values (?, ?, ?, ?, ?)";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(1, model.getName());
-            stm.setString(1, model.getEmail());
-            stm.setString(3, model.getPassword());
-            stm.setInt(4, model.getPhone());
+            stm.setInt(1, model.getUser_id());
+            stm.setString(2, model.getName());
+            stm.setString(3, model.getEmail());
+            stm.setString(4, model.getPassword());
+            stm.setInt(5, model.getPhone());
             stm.executeUpdate();
-
-            String sql_get_user_id = "SELECT @@IDENTITY as user_id";
-            PreparedStatement stm_get_user_id = connection.prepareStatement(sql_get_user_id);
-            ResultSet rs = stm_get_user_id.executeQuery();
-            if (rs.next()) {
-                model.setUser_id(rs.getInt("user_id"));
-            }
             connection.commit();
         } catch (SQLException ex) {
             Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
@@ -62,7 +56,7 @@ public class UserDBContext extends DBContext<User> {
     public void delete(User model) {
         try {
             String sql = "DELETE [User] \n"
-                    + "WHERE [user_id] = ?";
+                    + "WHERE user_id = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, model.getUser_id());
             stm.executeUpdate();
@@ -74,11 +68,30 @@ public class UserDBContext extends DBContext<User> {
     @Override
     public User get(int id) {
         try {
-            String sql = "SELECT user_id From [USER] Where user_id = ?";
+            String sql = "SELECT * From [User] Where user_id = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, id);
+            ResultSet rs = stm.executeQuery();
+            User u = null;
+            while (rs.next()) {
+                if (u == null) {
+                    u = new User();
+                    int user_id = rs.getInt("user_id");
+                    String name = rs.getString("name");
+                    String email = rs.getString("email");
+                    String password = rs.getString("password");
+                    int phone = rs.getInt("phone");
+
+                    u.setUser_id(user_id);
+                    u.setName(name);
+                    u.setEmail(email);
+                    u.setPassword(password);
+                    u.setPhone(phone);
+                }
+                return u;
+            }
         } catch (SQLException e) {
-             Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, e);
         }
         return null;
     }
