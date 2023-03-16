@@ -9,9 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Update</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <form action="updateuser" method="post">
+        User ID: <input type="text" name="user_id"value="${param.user_id}"><br>
+        User Name: <input type="text" name="name"><br>
+        Password: <input type="text" name="password"><br>
+        Email: <input type="text" name="email"><br>
+        Phone: <input type="number" name="phone"><br>
+        <input type="submit" name="Save">
+        </form>
     </body>
 </html>

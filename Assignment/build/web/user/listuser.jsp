@@ -28,7 +28,7 @@
                     <td>${u.email}</td>
                     <td>${u.phone}</td>
                     <td>
-                        <a href="update?user_id=${u.user_id}">Edit</a>
+                        <a href="updateuser?user_id=${u.user_id}">Edit</a>
                     </td>     
                     <td>
                         <a href="delete?user_id=${u.user_id}">Delete</a>

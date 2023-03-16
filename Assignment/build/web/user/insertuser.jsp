@@ -9,9 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Insert</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        User ID: <input type="text" name="user_id"value="${param.user_id}">
+        User Name: <input type="text" name="name">
+        Password: <input type="text" name="password">
+        Email: <input type="text" name="email"><!-- comment -->
+        Phone: <input type="number" name="phone">
     </body>
 </html>

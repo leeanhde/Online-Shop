@@ -33,7 +33,7 @@
                     <td>${p.price}</td>
                     <td>${p.description}</td>
                     <td>
-                        <a href="update?product_id=${p.product_id}">Edit</a>
+                        <a href="update?product_id=${p.product_id}">Update</a>
                     </td>
                     <td>
                         <a href="delete?product_id=${p.product_id}">Delete</a>

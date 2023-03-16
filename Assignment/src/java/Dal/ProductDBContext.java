@@ -4,7 +4,6 @@
  */
 package Dal;
 
-import Model.Categories;
 import Model.Product;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,31 +19,26 @@ import java.util.logging.Logger;
 public class ProductDBContext extends DBContext<Product> {
 
     public void search(Product model) {
-
         try {
-            connection.setAutoCommit(false);
             String sql = "Select product_id, product_name, price, [description] from [Product]\n"
-                    + "where product_name like '%?%'";
+                    + "where product_name like ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, model.getProduct_name());
             stm.executeQuery();
-            connection.commit();
 
         } catch (SQLException ex) {
             Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     @Override
     public void insert(Product model) {
         try {
-            connection.setAutoCommit(false);
             String sql = "INSERT INTO [Product]\n "
-                    + "(c_id\n"
-                    + ", product_name\n"
-                    + ", price\n"
-                    + ", description)\n"
+                    + "( [c_id]\n"
+                    + ", [product_name]\n"
+                    + ", [price]\n"
+                    + ", [description])\n"
                     + "VALUES \n"
                     + "(?\n"
                     + ",?\n"
@@ -58,63 +52,30 @@ public class ProductDBContext extends DBContext<Product> {
             stm.setString(4, model.getDescription());
             stm.executeUpdate();
 
-            String sql_get_product_id = "SSELECT @@IDENTITY as [product_id]";
+            String sql_get_product_id = "SELECT @@IDENTITY as [product_id]";
             PreparedStatement stm_get_id = connection.prepareStatement(sql_get_product_id);
             ResultSet rs = stm_get_id.executeQuery();
             if (rs.next()) {
                 model.setProduct_id(rs.getInt("product_id"));
             }
-
-            connection.commit();
         } catch (SQLException e) {
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, e1);
-            }
             Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                connection.setAutoCommit(true);
-            } catch (SQLException ex) {
-                Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
     }
 
     @Override
     public void update(Product model) {
         try {
-            connection.setAutoCommit(false);
-            String sql = "UPDATE [Product] \n"
-                    + "SET \n"
-                    + "[product_id] = ?,\n"
-                    + "[product_name] = ?,\n"
-                    + "[c_id] = ?,\n"
-                    + "[price] = ?,\n"
-                    + "[description] = ?,\n"
-                    + "WHERE [product_id] = ?";
+            String sql = "UPDATE [Product] SET [c_id] = ?,[product_name] = ?,[price] = ?,[description]= ? WHERE [product_id]  = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, model.getProduct_id());
-            stm.setString(2, model.getProduct_name());
-            stm.setInt(3, model.getC_id());
-            stm.setInt(4, model.getPrice());
-            stm.setString(5, model.getDescription());
+            stm.setString(1, model.getProduct_name());
+            stm.setInt(2, model.getC_id());
+            stm.setInt(3, model.getPrice());
+            stm.setString(4, model.getDescription());
+            stm.setInt(5, model.getProduct_id());
             stm.executeUpdate();
-            connection.commit();
         } catch (SQLException e) {
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, e1);
-            }
             Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                connection.setAutoCommit(true);
-            } catch (SQLException ex) {
-                Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
     }
 
@@ -154,10 +115,6 @@ public class ProductDBContext extends DBContext<Product> {
                     p.setProduct_name(product_name);
                     p.setPrice(price);
                     p.setDescription(description);
-
-                    Categories c = new Categories();
-                    c.setC_id(id);
-                    c.setC_name(product_name);
                 }
             }
             return p;
