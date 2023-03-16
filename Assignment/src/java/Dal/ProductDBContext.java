@@ -18,17 +18,29 @@ import java.util.logging.Logger;
  */
 public class ProductDBContext extends DBContext<Product> {
 
-    public void search(Product model) {
+    public ArrayList<Product> search(String search) {
+        ArrayList<Product> products = new ArrayList<>();
         try {
-            String sql = "Select product_id, product_name, price, [description] from [Product]\n"
-                    + "where product_name like ?";
+            String search = "";
+            String sql = "SELECT * FROM [Product]\n"
+                    + "WHERE product_name like ?";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(1, model.getProduct_name());
-            stm.executeQuery();
-
+            stm.setString(1, "%" + search + "%");
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                
+                Product p = new Product();
+                p.setProduct_id(rs.getInt("product_id"));
+                p.setC_id(rs.getInt("c_id"));
+                p.setProduct_name(rs.getString("product_name"));
+                p.setPrice(rs.getInt("price"));
+                p.setDescription(rs.getString("description"));
+                products.add(p);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return products;
     }
 
     @Override

@@ -12,6 +12,11 @@
         <title>Home Page</title>
     </head>
     <body>
+        <form action="search" method="post">
+            <input type="search" name="name">
+            <input type="submit" name="Save" value="Search">
+        </form>
+        
         <table border = 1px>
             <td>Product ID</td>
             <td>Image</td>
