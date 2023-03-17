@@ -20,7 +20,8 @@ public class OrderDBContext extends DBContext<Order> {
 
     @Override
     public void insert(Order model) {
-        String sql = "select * from [Order]";
+        String sql = "INSERT INTO [Order] (o_id, user_id, [status] , total, create_at) \n"
+                + "VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
@@ -31,7 +32,7 @@ public class OrderDBContext extends DBContext<Order> {
 
     @Override
     public void update(Order model) {
-        String sql = "select * from [Order]";
+        String sql = "UPDATE [Order] SET ";
         try {
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
@@ -42,12 +43,13 @@ public class OrderDBContext extends DBContext<Order> {
 
     @Override
     public void delete(Order model) {
-        String sql = "select * from [Order]";
+        String sql = "DELETE [Order] WHERE o_id = ?";
         try {
             PreparedStatement stm = connection.prepareStatement(sql);
-            ResultSet rs = stm.executeQuery();
-
+            stm.setInt(1, model.getO_id());
+            stm.executeQuery();
         } catch (SQLException e) {
+            Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 

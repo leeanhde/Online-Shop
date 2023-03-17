@@ -21,11 +21,11 @@ public class ProductDBContext extends DBContext<Product> {
     public ArrayList<Product> search(String search) {
         ArrayList<Product> products = new ArrayList<>();
         try {
-            String search = "";
+            String name = "";
             String sql = "SELECT * FROM [Product]\n"
                     + "WHERE product_name like ?";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(1, "%" + search + "%");
+            stm.setString(1, "%" + name + "%");
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 
