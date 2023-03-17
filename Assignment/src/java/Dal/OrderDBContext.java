@@ -8,6 +8,7 @@ import Model.Order;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +25,12 @@ public class OrderDBContext extends DBContext<Order> {
                 + "VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement stm = connection.prepareStatement(sql);
-            ResultSet rs = stm.executeQuery();
+            stm.setInt(1, model.getO_id());
+            stm.setInt(2, model.getUser_id());
+            stm.setString(3, model.getStatus());
+            stm.setDouble(4, model.getTotal());
+            stm.setDate(5, model.getCreate_at());
+            stm.executeUpdate();
 
         } catch (SQLException e) {
         }
@@ -32,11 +38,18 @@ public class OrderDBContext extends DBContext<Order> {
 
     @Override
     public void update(Order model) {
-        String sql = "UPDATE [Order] SET ";
+        String sql = "UPDATE [Order] SET user_id = ?, [status] = ?, total = ?, create_at = ? WHERE o_id = ?";
         try {
             PreparedStatement stm = connection.prepareStatement(sql);
-            ResultSet rs = stm.executeQuery();
 
+            stm.setInt(1, model.getUser_id());
+            stm.setString(2, model.getStatus());
+            stm.setDouble(3, model.getTotal());
+            stm.setTimestamp(4, new Timestamp(model.getCreate_at().getTime()));
+            stm.setInt(5, model.getO_id());
+
+            // execute the update statement
+            stm.executeUpdate();
         } catch (SQLException e) {
         }
     }

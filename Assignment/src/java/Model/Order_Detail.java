@@ -9,11 +9,11 @@ package Model;
  * @author anhde
  */
 public class Order_Detail {
+
     private int od_id;
     private int o_id;
     private int product_id;
     private int quantyti;
-    private int price;
 
     public Order_Detail() {
     }
@@ -23,7 +23,14 @@ public class Order_Detail {
         this.o_id = o_id;
         this.product_id = product_id;
         this.quantyti = quantyti;
-        this.price = price;
+    }
+
+    public Order_Detail(int orderId, int productId, int quantity) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public Order_Detail(int od_id, int o_id, int productId, int quantity) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public int getOd_id() {
@@ -58,12 +65,4 @@ public class Order_Detail {
         this.quantyti = quantyti;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-    
 }
