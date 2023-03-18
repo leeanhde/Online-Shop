@@ -11,79 +11,49 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home Page</title>
         <style>
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                background-color: #333;
-            }
 
-            li {
-                float: left;
-            }
-
-            li a {
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-
-            li a:hover {
-                background-color: #111;
-            }
-
-            /* Style for the search box */
-            #search-container {
-                float: right;
-                margin-top: 10px;
-            }
-
-            #search-container input[type=text] {
-                padding: 6px;
-                margin-top: 1px;
-                font-size: 17px;
-                border: none;
-                border-radius: 4px;
-            }
-
-            #search-container button {
-                float: inherit;
-                padding: 6px 10px;
-                margin-top: 1px;
-                margin-right: 16px;
-                background: #ddd;
-                font-size: 17px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-
-            #search-container button:hover {
-                background: #ccc;
-            }
         </style>
     </head>
     <body>
-
-       
-        <ul>
-            <li><a class="active" href="Home.jsp">Trang Chủ</a></li>
-            <li><a href="#">Giỏ Hàng</a></li>
-            <li><a href="#">Liên Hệ</a></li>
-            <li><a href="#">Giới Thiệu</a></li>
-            <li>
-                <div id="search-container">
-                    <form action="../product/search">
-                        <input type="text" placeholder="Search...">
-                        <button type="submit">Search</button>
-                    </form>
-                </div>
-            </li>
-        </ul>
-
+        <jsp:include page="menu.jsp"></jsp:include>
+            <table border = 1px>
+                <div>
+                    <tr>
+                        <td>Product Name</td>
+                        <td>Image</td> 
+                        <td>Price</td>
+                        <td>Description</td>
+                        <td></td>
+                    </tr>
+                <c:forEach items="${requestScope.products}" var="p">
+                    <tr>
+                        <td>
+                            <a href="detail?product_id=${p.product_id}">${p.product_name}</a>
+                        </td>
+                        <td>Image</td>
+                        <td>${p.price}</td>
+                        <td>${p.description}<td>
+                        <td>
+                            <a href="#">Add to Cart</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </div>
+        </table>
+        <table border = 1px>
+            <div>
+                <tr>
+                    <td>Categories Name</td>
+                </tr>
+                <c:forEach items="${requestScope.cate}" var="c">
+                    <tr>
+                        <td>
+                            <a href="category?c_id=${c.c_id}">${c.c_name}</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </div>
+        </table>
 
     </body>
 </html>

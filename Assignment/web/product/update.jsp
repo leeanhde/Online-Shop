@@ -12,6 +12,9 @@
         <title>Update</title>
     </head>
     <body>
+
+        <jsp:include page="menu.jsp"></jsp:include>
+
         <form action="update" method="POST">
             Product ID: <input type="number" name="product_id" value="${param.product_id}"><br>
             Product Name: <input type="text" name="product_name"><br>

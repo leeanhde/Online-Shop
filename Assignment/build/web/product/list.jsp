@@ -13,18 +13,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        
-        <table border="1px">
-            <tr>
-                <td>Product ID</td>
-                <td>Product Name</td>
-                <td>Category ID</td>
-                <td>Category Name</td>
-                <td>Price</td>
-                <td>Description</td>
-                <td></td>
-                <td></td> 
-            </tr>
+        <jsp:include page="menu.jsp"></jsp:include>
+
+            <table border="1px">
+                <tr>
+                    <td>Product ID</td>
+                    <td>Product Name</td>
+                    <td>Category ID</td>
+                    <td>Category Name</td>
+                    <td>Price</td>
+                    <td>Description</td>
+                    <td></td>
+                    <td></td> 
+                </tr>
 
             <c:forEach items="${requestScope.products}" var="p">
                 <tr>

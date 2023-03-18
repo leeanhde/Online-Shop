@@ -12,6 +12,8 @@
         <title>Insert</title>
     </head>
     <body>
+
+        <jsp:include page="menu.jsp"></jsp:include>
         <form action="insert" method="POST">
             Product ID: <input type="number" name="product_id"><br>
             Categories ID: <input type="number" name="c_id"><br>

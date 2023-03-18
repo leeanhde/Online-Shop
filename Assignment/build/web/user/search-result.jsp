@@ -1,6 +1,6 @@
 <%-- 
-    Document   : listuser
-    Created on : Mar 6, 2023, 3:31:34 AM
+    Document   : search-result
+    Created on : Mar 18, 2023, 12:27:05 PM
     Author     : anhde
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -9,10 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>List User</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        
+
         <ul>
             <li><a class="active" href="Home.jsp">Trang Chủ</a></li>
             <li><a href="order/listorder.jsp">Giỏ Hàng</a></li>
@@ -34,24 +34,17 @@
             <td>Password</td>
             <td>Email</td>
             <td>Phone</td>
-            <td></td>
-            <td></td>
-            <c:forEach items="${requestScope.users}" var="u">
+            
+            <c:forEach items="${requestScope.userlist}" var="u">
                 <tr>
                     <td>${u.user_id}</td>
                     <td>${u.name}</td>
                     <td>${u.password}</td>
                     <td>${u.email}</td>
                     <td>${u.phone}</td>
-                    <td>
-                        <a href="updateuser?user_id=${u.user_id}">Edit</a>
-                    </td>     
-                    <td>
-                        <a href="delete?user_id=${u.user_id}">Delete</a>
-                    </td>
+                    
                 </tr>
             </c:forEach>
         </table>
-        <a href="insertuser">Insert</a>
     </body>
 </html>

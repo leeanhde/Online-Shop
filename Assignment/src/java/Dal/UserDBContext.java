@@ -17,21 +17,7 @@ import java.util.logging.Logger;
  * @author anhde
  */
 public class UserDBContext extends DBContext<User> {
-    
-    public void searchUser(User model){
-        try {
-            String sql = "SELECT * FROM [Product]\n"
-                    + "WHERE product_name like ?";
-            PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(1, model.getName());
-            stm.executeQuery();
 
-        } catch (SQLException ex) {
-            Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    
     @Override
     public void insert(User model) {
         try {

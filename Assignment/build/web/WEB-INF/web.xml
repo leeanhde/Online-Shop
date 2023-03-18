@@ -37,16 +37,28 @@
         <servlet-class>Controller.Product.Search</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SearchUser</servlet-name>
-        <servlet-class>Controller.User.SearchUser</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>Controller.Login.Login</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>HomeController</servlet-name>
-        <servlet-class>Controller.Home.HomeController</servlet-class>
+        <servlet-class>Controller.HomeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListOrder</servlet-name>
+        <servlet-class>Controller.Order.ListOrder</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Category</servlet-name>
+        <servlet-class>Controller.CategoryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DetailController</servlet-name>
+        <servlet-class>Controller.DetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchController</servlet-name>
+        <servlet-class>Controller.SearchController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>List</servlet-name>
@@ -84,10 +96,6 @@
         <servlet-name>Search</servlet-name>
         <url-pattern>/product/search</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SearchUser</servlet-name>
-        <url-pattern>/searchuser</url-pattern>
-    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>Home.jsp</welcome-file>
     </welcome-file-list>
@@ -98,6 +106,22 @@
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListOrder</servlet-name>
+        <url-pattern>/listorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Category</servlet-name>
+        <url-pattern>/category</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetailController</servlet-name>
+        <url-pattern>/detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchController</servlet-name>
+        <url-pattern>/search</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

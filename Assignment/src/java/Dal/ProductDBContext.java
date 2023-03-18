@@ -18,17 +18,14 @@ import java.util.logging.Logger;
  */
 public class ProductDBContext extends DBContext<Product> {
 
-    public ArrayList<Product> search(String search) {
+    public ArrayList<Product> searchByName(String name) {
         ArrayList<Product> products = new ArrayList<>();
         try {
-            String name = "";
-            String sql = "SELECT * FROM [Product]\n"
-                    + "WHERE product_name like ?";
+            String sql = "SELECT * FROM product WHERE product_name like ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, "%" + name + "%");
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                
                 Product p = new Product();
                 p.setProduct_id(rs.getInt("product_id"));
                 p.setC_id(rs.getInt("c_id"));
@@ -37,8 +34,8 @@ public class ProductDBContext extends DBContext<Product> {
                 p.setDescription(rs.getString("description"));
                 products.add(p);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException e) {
+            Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, e);
         }
         return products;
     }
@@ -145,4 +142,47 @@ public class ProductDBContext extends DBContext<Product> {
         return products;
     }
 
+    public ArrayList<Product> getProductByCid(String c_id) {
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM Product WHERE c_id = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, c_id);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Product p = new Product();
+                p.setProduct_id(rs.getInt("product_id"));
+                p.setC_id(rs.getInt("c_id"));
+                p.setProduct_name(rs.getString("product_name"));
+                p.setPrice(rs.getInt("price"));
+                p.setDescription(rs.getString("description"));
+                products.add(p);
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return products;
+    }
+
+    public Product getProductById(String id) {
+
+        try {
+            String sql = "SELECT * FROM Product WHERE product_id = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, id);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Product p = new Product();
+                p.setProduct_id(rs.getInt("product_id"));
+                p.setC_id(rs.getInt("c_id"));
+                p.setProduct_name(rs.getString("product_name"));
+                p.setPrice(rs.getInt("price"));
+                p.setDescription(rs.getString("description"));
+                return p;
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return null;
+    }
 }
