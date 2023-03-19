@@ -18,37 +18,124 @@ import java.util.logging.Logger;
  */
 public class UserDBContext extends DBContext<User> {
 
+    public User login(String user, String pass) {
+        String sql = "SELECT * from [User] WHERE [name] = ? and [password] = ?";
+        try {
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, user);
+            stm.setString(2, pass);
+            ResultSet rs = stm.executeQuery();
+            User u = null;
+            while (rs.next()) {
+                if (u == null) {
+                    u = new User();
+                    int user_id = rs.getInt("user_id");
+                    String name = rs.getString("name");
+                    String email = rs.getString("email");
+                    String password = rs.getString("password");
+                    int phone = rs.getInt("phone");
+                    int isAdmin = rs.getInt("isAdmin");
+
+                    u.setUser_id(user_id);
+                    u.setName(name);
+                    u.setEmail(email);
+                    u.setPassword(password);
+                    u.setPhone(phone);
+                    u.setIsAdmin(isAdmin);
+                }
+                return u;
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return null;
+    }
+
+    public User check(String user) {
+        String sql = "SELECT * from [User] WHERE [name] = ?";
+        try {
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, user);
+            ResultSet rs = stm.executeQuery();
+            User u = null;
+            while (rs.next()) {
+                if (u == null) {
+                    u = new User();
+                    int user_id = rs.getInt("user_id");
+                    String name = rs.getString("name");
+                    String email = rs.getString("email");
+                    String password = rs.getString("password");
+                    int phone = rs.getInt("phone");
+                    int isAdmin = rs.getInt("isAdmin");
+
+                    u.setUser_id(user_id);
+                    u.setName(name);
+                    u.setEmail(email);
+                    u.setPassword(password);
+                    u.setPhone(phone);
+                    u.setIsAdmin(isAdmin);
+                }
+                return u;
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return null;
+    }
+
+    public void signup(String user_name, String password) {
+        try {
+            String sql = "INSERT INTO [User]n"
+                    + "Values (?, 0, ?, 0, 0)";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, user_name);
+            stm.setString(2, password);
+            stm.executeUpdate();
+            connection.commit();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDBContext.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     @Override
     public void insert(User model) {
         try {
-            String sql = "INSERT INTO [User](user_id, [name], email, [password], phone)\n"
-                    + "Values (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO [User](user_id, [name], email, [password], phone, isAdmin)\n"
+                    + "Values (?, ?, ?, ?, ?, ?)";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, model.getUser_id());
             stm.setString(2, model.getName());
             stm.setString(3, model.getEmail());
             stm.setString(4, model.getPassword());
             stm.setInt(5, model.getPhone());
+            stm.setInt(6, model.getIsAdmin());
             stm.executeUpdate();
             connection.commit();
+
         } catch (SQLException ex) {
-            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDBContext.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @Override
     public void update(User model) {
         try {
-            String sql = "UPDATE [User] SET  [name] = ? ,[email] = ?,  [password] = ? , [phone] = ? Where user_id = ?";
+            String sql = "UPDATE [User] SET  [name] = ? ,[email] = ?,  [password] = ? , [phone] = ?, isAdmin = ? Where user_id = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, model.getName());
             stm.setString(2, model.getEmail());
             stm.setString(3, model.getPassword());
             stm.setInt(4, model.getPhone());
-            stm.setInt(5, model.getUser_id());
+            stm.setInt(5, model.getIsAdmin());
+            stm.setInt(6, model.getUser_id());
             stm.executeUpdate();
+
         } catch (SQLException ex) {
-            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDBContext.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -60,8 +147,10 @@ public class UserDBContext extends DBContext<User> {
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, model.getUser_id());
             stm.executeUpdate();
+
         } catch (SQLException ex) {
-            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDBContext.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -81,17 +170,21 @@ public class UserDBContext extends DBContext<User> {
                     String email = rs.getString("email");
                     String password = rs.getString("password");
                     int phone = rs.getInt("phone");
+                    int isAdmin = rs.getInt("isAdmin");
 
                     u.setUser_id(user_id);
                     u.setName(name);
                     u.setEmail(email);
                     u.setPassword(password);
                     u.setPhone(phone);
+                    u.setIsAdmin(isAdmin);
                 }
                 return u;
+
             }
         } catch (SQLException e) {
-            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(UserDBContext.class
+                    .getName()).log(Level.SEVERE, null, e);
         }
         return null;
     }
@@ -110,17 +203,21 @@ public class UserDBContext extends DBContext<User> {
                 String password = rs.getString("password");
                 String email = rs.getString("email");
                 int phone = rs.getInt("phone");
+                int isAdmin = rs.getInt("isAdmin");
 
                 u.setUser_id(user_id);
                 u.setName(name);
-                u.setPassword(password);
                 u.setEmail(email);
+                u.setPassword(password);
                 u.setPhone(phone);
+                u.setIsAdmin(isAdmin);
 
                 users.add(u);
+
             }
         } catch (SQLException ex) {
-            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDBContext.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         return users;
 

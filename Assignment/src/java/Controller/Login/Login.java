@@ -4,10 +4,13 @@
  */
 package Controller.Login;
 
+import Dal.UserDBContext;
+import Model.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -18,7 +21,20 @@ public class Login extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String user_name = request.getParameter("user_name");
+        String password = request.getParameter("password");
         
+        UserDBContext db = new UserDBContext();
+        User u = db.login(user_name, password);
+        if (u == null) {
+            request.setAttribute("mess", "Wrong user or password");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("acc", u);
+            session.setMaxInactiveInterval(6000000);
+            request.getRequestDispatcher("/home").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

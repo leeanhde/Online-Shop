@@ -14,7 +14,17 @@ public class User {
     private String password;
     private String email;
     private int phone;
+    private int isAdmin;
 
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+   
     
 
     public int getUser_id() {

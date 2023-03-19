@@ -37,16 +37,8 @@
         <servlet-class>Controller.Product.Search</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Login</servlet-name>
-        <servlet-class>Controller.Login.Login</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>HomeController</servlet-name>
         <servlet-class>Controller.HomeController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ListOrder</servlet-name>
-        <servlet-class>Controller.Order.ListOrder</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Category</servlet-name>
@@ -59,6 +51,18 @@
     <servlet>
         <servlet-name>SearchController</servlet-name>
         <servlet-class>Controller.SearchController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>Controller.Login.Login</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignupController</servlet-name>
+        <servlet-class>Controller.Login.SignupController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>Controller.Login.Logout</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>List</servlet-name>
@@ -100,16 +104,8 @@
         <welcome-file>Home.jsp</welcome-file>
     </welcome-file-list>
     <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ListOrder</servlet-name>
-        <url-pattern>/listorder</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Category</servlet-name>
@@ -122,6 +118,18 @@
     <servlet-mapping>
         <servlet-name>SearchController</servlet-name>
         <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignupController</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
