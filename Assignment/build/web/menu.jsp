@@ -1,16 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<ul>
-    <li><a href="Home.jsp">Trang Chủ</a></li>
-    <li><a href="#">Giỏ Hàng</a></li>
-    <li><a href="#">Liên Hệ</a></li>
-    <li><a href="#">Giới Thiệu</a></li>
+
+    <li><a href="listcart">Giỏ Hàng</a></li>
      <c:if test="${sessionScope.acc.isAdmin == 1}">
         <li>
             <a href="product/list">Quản lý Sản phẩm</a>
         </li>
         <li>
-            <a href="#">Quản lý đơn hàng</a>
+            <a href="user/listuser">Quản lý Nhân viên</a>
         </li>
     </c:if>
 

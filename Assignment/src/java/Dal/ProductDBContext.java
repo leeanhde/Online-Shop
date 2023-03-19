@@ -40,7 +40,6 @@ public class ProductDBContext extends DBContext<Product> {
         return products;
     }
 
-    @Override
     public void insert(Product model) {
         try {
             String sql = "INSERT INTO [Product] (product_id, c_id, product_name, price, [description])\n"
@@ -57,7 +56,6 @@ public class ProductDBContext extends DBContext<Product> {
         }
     }
 
-    @Override
     public void update(Product model) {
         try {
             String sql = "Update [Product] set [product_name] = ? , c_id = ?, price = ?, [description] = ? Where product_id = ?";
@@ -73,7 +71,6 @@ public class ProductDBContext extends DBContext<Product> {
         }
     }
 
-    @Override
     public void delete(Product model) {
         try {
             String sql = "DELETE [Product]\n"
@@ -86,7 +83,6 @@ public class ProductDBContext extends DBContext<Product> {
         }
     }
 
-    @Override
     public Product get(int id) {
         try {
             String sql = "SELECT *\n"
@@ -119,7 +115,6 @@ public class ProductDBContext extends DBContext<Product> {
 
     }
 
-    @Override
     public ArrayList<Product> list() {
         ArrayList<Product> products = new ArrayList<>();
         try {

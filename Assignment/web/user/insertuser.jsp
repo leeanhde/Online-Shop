@@ -14,19 +14,11 @@
     <body>
         
         <ul>
-            <li><a class="active" href="Home.jsp">Trang Chủ</a></li>
-            <li><a href="order/listorder.jsp">Giỏ Hàng</a></li>
-            <li><a href="#">Liên Hệ</a></li>
-            <li><a href="#">Giới Thiệu</a></li>
             <li>
-                <div id="search-container">
-                    <form action="../product/search">
-                        <input type="text" placeholder="Search...">
-                        <button type="submit">Search</button>
-                    </form>
-                </div>
+                <a href="home">Trang Chủ</a>
             </li>
-        </ul>
+            <jsp:include page="../menu.jsp"></jsp:include>
+            </ul>
         
         <form action="insertuser" method="post">
             User ID: <input type="number" name="user_id"><br>
@@ -34,7 +26,9 @@
             Password: <input type="text" name="password"><br>
             Email: <input type="text" name="email"><br>
             Phone: <input type="number" name="phone"><br>
+            Admin: <input type="number" name="isAdmin"><br>
             <input type="submit" value="Save">
         </form>
+        <jsp:include page="../footer.jsp"></jsp:include>
     </body>
 </html>

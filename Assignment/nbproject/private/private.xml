@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/src/java/Model/CartItem.java</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/src/java/Dal/ProductDBContext.java</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/web/cart/cart.jsp</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/src/java/Model/Product.java</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/src/java/Controller/Cart/ListCart.java</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/src/java/Dal/CartDBContext.java</file>
+        </group>
     </open-files>
 </project-private>

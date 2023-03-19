@@ -12,30 +12,22 @@
         <title>List User</title>
     </head>
     <body>
-        
+
         <ul>
-            <li><a class="active" href="Home.jsp">Trang Chủ</a></li>
-            <li><a href="order/listorder.jsp">Giỏ Hàng</a></li>
-            <li><a href="#">Liên Hệ</a></li>
-            <li><a href="#">Giới Thiệu</a></li>
             <li>
-                <div id="search-container">
-                    <form action="../product/search">
-                        <input type="text" placeholder="Search...">
-                        <button type="submit">Search</button>
-                    </form>
-                </div>
+                <a href="home">Trang Chủ</a>
             </li>
-        </ul>
-        
-        <table border = 1px>
-            <td>User ID</td>
-            <td>User Name</td>
-            <td>Password</td>
-            <td>Email</td>
-            <td>Phone</td>
-            <td></td>
-            <td></td>
+            <jsp:include page="../menu.jsp"></jsp:include>
+            </ul>
+
+            <table border = 1px>
+                <td>User ID</td>
+                <td>User Name</td>
+                <td>Password</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td></td>
+                <td></td>
             <c:forEach items="${requestScope.users}" var="u">
                 <tr>
                     <td>${u.user_id}</td>
@@ -53,5 +45,6 @@
             </c:forEach>
         </table>
         <a href="insertuser">Insert</a>
+        <jsp:include page="../footer.jsp"></jsp:include>
     </body>
 </html>

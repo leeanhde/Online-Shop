@@ -24,9 +24,6 @@ public class User {
         this.isAdmin = isAdmin;
     }
 
-   
-    
-
     public int getUser_id() {
         return user_id;
     }

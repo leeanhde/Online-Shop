@@ -83,23 +83,6 @@ public class UserDBContext extends DBContext<User> {
         return null;
     }
 
-    public void signup(String user_name, String password) {
-        try {
-            String sql = "INSERT INTO [User]n"
-                    + "Values (?, 0, ?, 0, 0)";
-            PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(1, user_name);
-            stm.setString(2, password);
-            stm.executeUpdate();
-            connection.commit();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(UserDBContext.class
-                    .getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
     public void insert(User model) {
         try {
             String sql = "INSERT INTO [User](user_id, [name], email, [password], phone, isAdmin)\n"
@@ -120,7 +103,6 @@ public class UserDBContext extends DBContext<User> {
         }
     }
 
-    @Override
     public void update(User model) {
         try {
             String sql = "UPDATE [User] SET  [name] = ? ,[email] = ?,  [password] = ? , [phone] = ?, isAdmin = ? Where user_id = ?";
@@ -139,7 +121,6 @@ public class UserDBContext extends DBContext<User> {
         }
     }
 
-    @Override
     public void delete(User model) {
         try {
             String sql = "DELETE [User] \n"
@@ -154,7 +135,6 @@ public class UserDBContext extends DBContext<User> {
         }
     }
 
-    @Override
     public User get(int id) {
         try {
             String sql = "SELECT * From [User] Where user_id = ?";
@@ -189,7 +169,6 @@ public class UserDBContext extends DBContext<User> {
         return null;
     }
 
-    @Override
     public ArrayList<User> list() {
         ArrayList<User> users = new ArrayList<>();
         String sql = "Select * from [User]";

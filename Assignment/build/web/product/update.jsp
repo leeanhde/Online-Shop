@@ -13,15 +13,21 @@
     </head>
     <body>
 
-        <jsp:include page="menu.jsp"></jsp:include>
+       <ul>
+            <li>
+                <a href="../Home.jsp">Trang Chủ</a>
+            </li>
+            <jsp:include page="../menu.jsp"></jsp:include>
+            </ul>
 
-        <form action="update" method="POST">
-            Product ID: <input type="number" name="product_id" value="${param.product_id}"><br>
+            <form action="update" method="POST">
+                Product ID: <input type="number" name="product_id" value="${param.product_id}"><br>
             Product Name: <input type="text" name="product_name"><br>
             Categories ID:<input type="number" name="c_id"><br>
             Price:  <input type="number" name="price"><br>
             Description: <input type="text" name="description"><br>
             <input type="submit" value="Save">
         </form>
+        <jsp:include page="../footer.jsp"></jsp:include>
     </body>
 </html>

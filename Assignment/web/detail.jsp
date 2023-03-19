@@ -12,43 +12,33 @@
         <title>Detail Product</title>
     </head>
     <body>
-        <jsp:include page="menu.jsp"></jsp:include>
-
         <ul>
-            <li><a class="active" href="Home.jsp">Trang Chủ</a></li>
-            <li><a href="#">Giỏ Hàng</a></li>
-            <li><a href="#">Liên Hệ</a></li>
-            <li><a href="#">Giới Thiệu</a></li>
             <li>
-                <div id="search-container">
-                    <form action="../product/search">
-                        <input type="text" placeholder="Search...">
-                        <button type="submit">Search</button>
-                    </form>
-                </div>
+                <a href="home">Trang Chủ</a>
             </li>
-        </ul>
+            <jsp:include page="menu.jsp"></jsp:include>
+            </ul>
 
-        <table border = 1px>
-            <div>
-                <tr>
-                    <td>Product Name</td>
-                    <td>Image</td> 
-                    <td>Price</td>
-                    <td>Description</td>
-                    <td></td>
-                </tr>
-                
+            <table border = 1px>
+                <div>
+                    <tr>
+                        <td>Product Name</td>
+                        <td>Image</td> 
+                        <td>Price</td>
+                        <td>Description</td>
+                        <td></td>
+                    </tr>
+
                     <tr>
                         <td>${detail.product_name}</td>
-                        <td>Image</td>
-                        <td>${detail.price}</td>
-                        <td>${detail.description}<td>
-                        <td>
-                            <a href="#">Add to Cart</a>
-                        </td>
-                    </tr>
-                
+                    <td>Image</td>
+                    <td>${detail.price}</td>
+                    <td>${detail.description}<td>
+                    <td>
+                        <a href="#">Add to Cart</a>
+                    </td>
+                </tr>
+
             </div>
         </table>
         <table border = 1px>
@@ -65,7 +55,7 @@
                 </c:forEach>
             </div>
         </table>
-
+        <jsp:include page="footer.jsp"></jsp:include>
     </body>
 
 </html>

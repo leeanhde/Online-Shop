@@ -13,7 +13,12 @@
     </head>
     <body>
 
-        <jsp:include page="menu.jsp"></jsp:include>
+        <ul>
+            <li>
+                <a href="../Home.jsp">Trang Chủ</a>
+            </li>
+            <jsp:include page="../menu.jsp"></jsp:include>
+            </ul>
         <form action="insert" method="POST">
             Product ID: <input type="number" name="product_id"><br>
             Categories ID: <input type="number" name="c_id"><br>
@@ -22,5 +27,6 @@
             Description <input type="text" name="description"><br>
             <input type="submit" value="Save">
         </form>
+        <jsp:include page="../footer.jsp"></jsp:include>
     </body>
 </html>

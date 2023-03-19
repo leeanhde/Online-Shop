@@ -32,7 +32,7 @@ public class Login extends HttpServlet {
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("acc", u);
-            session.setMaxInactiveInterval(6000000);
+            session.setMaxInactiveInterval(3600);
             request.getRequestDispatcher("/home").forward(request, response);
         }
     }

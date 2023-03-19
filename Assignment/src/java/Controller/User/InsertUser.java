@@ -41,6 +41,7 @@ public class InsertUser extends HttpServlet {
         u.setEmail(request.getParameter("email"));
         u.setPassword(request.getParameter("password"));
         u.setPhone(Integer.parseInt(request.getParameter("phone")));
+        u.setIsAdmin(Integer.parseInt(request.getParameter("isAdmin")));
         
         UserDBContext db = new UserDBContext();
         db.insert(u);

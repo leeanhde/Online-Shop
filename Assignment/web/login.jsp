@@ -12,18 +12,12 @@
         <title>Login Page</title>
     </head>
     <body>
+        
         <form action="login" method="post">
             <p class="text-danger">${mess}</p>
             User Name: <input type="text" name="user_name">
             Password: <input type="password" name="password">
             <input type="submit" value="Login" name="login"/>
-        </form>
-
-        <form action="signup" method="post">
-            User Name:<input type="text" name="user_name">
-            Password:<input type="password" name="password">
-            Repeat Password: <input type="password" name="repassword">
-            <input type="submit" value="Sign Up" name="sign_up"/>
         </form>
     </body>
 </html>

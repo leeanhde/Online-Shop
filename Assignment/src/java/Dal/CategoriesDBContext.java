@@ -14,29 +14,8 @@ import java.util.ArrayList;
  *
  * @author anhde
  */
-public class CategoriesDBContext extends DBContext<Categories>{
-
-    @Override
-    public void insert(Categories model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void update(Categories model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void delete(Categories model) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Categories get(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
+public class CategoriesDBContext extends DBContext<Categories> {
+    
     public ArrayList<Categories> list() {
         ArrayList<Categories> cate = new ArrayList<>();
         try {

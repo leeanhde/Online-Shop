@@ -57,12 +57,12 @@
         <servlet-class>Controller.Login.Login</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SignupController</servlet-name>
-        <servlet-class>Controller.Login.SignupController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Logout</servlet-name>
         <servlet-class>Controller.Login.Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListCart</servlet-name>
+        <servlet-class>Controller.Cart.ListCart</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>List</servlet-name>
@@ -124,12 +124,12 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SignupController</servlet-name>
-        <url-pattern>/signup</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListCart</servlet-name>
+        <url-pattern>/listcart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
