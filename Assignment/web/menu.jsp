@@ -7,7 +7,7 @@
     <li><a href="#">Giới Thiệu</a></li>
      <c:if test="${sessionScope.acc.isAdmin == 1}">
         <li>
-            <a href="product/list.jsp">Quản lý Sản phẩm</a>
+            <a href="product/list">Quản lý Sản phẩm</a>
         </li>
         <li>
             <a href="#">Quản lý đơn hàng</a>

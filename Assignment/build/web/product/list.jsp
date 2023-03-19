@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <%--<jsp:include page="menu.jsp"></jsp:include>--%>
+        <jsp:include page="menu.jsp"></jsp:include>
 
             <table border="1px">
                 <tr>
