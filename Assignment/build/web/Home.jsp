@@ -11,7 +11,63 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home Page</title>
         <style>
+            /* Style for ul and li elements */
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
 
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover {
+                background-color: #111;
+            }
+
+            /* Style for table and td elements */
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            /* Style for the "Add to Cart" link */
+            a[href='#'] {
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                padding: 6px 12px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+
+            a[href='#']:hover {
+                background-color: #3e8e41;
+            }
         </style>
     </head>
     <body>
@@ -34,8 +90,8 @@
                     <td>
                         <a href="detail?product_id=${p.product_id}">${p.product_name}</a>
                     </td>
-                    <td>Image</td>
-                    <td>${p.price}</td>
+                    <td><img src="img/image7.jpg" alt="" id="img" width="200px"/></td>
+                    <td>${p.price} $</td>
                     <td>${p.description}<td>
                     <td>
                         <a href="#">Add to Cart</a>
