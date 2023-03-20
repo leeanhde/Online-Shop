@@ -35,39 +35,6 @@
             li a:hover {
                 background-color: #111;
             }
-
-            /* Style for table and td elements */
-            table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-
-            td, th {
-                border: 1px solid #ddd;
-                padding: 8px;
-            }
-
-            tr:nth-child(even) {
-                background-color: #f2f2f2;
-            }
-
-            /* Style for the "Add to Cart" link */
-            a[href='#'] {
-                background-color: #4CAF50;
-                border: none;
-                color: white;
-                padding: 6px 12px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                cursor: pointer;
-            }
-
-            a[href='#']:hover {
-                background-color: #3e8e41;
-            }
         </style>
     </head>
     <body>

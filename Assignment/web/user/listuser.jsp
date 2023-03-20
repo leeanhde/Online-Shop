@@ -51,23 +51,7 @@
                 background-color: #f2f2f2;
             }
 
-            /* Style for the "Add to Cart" link */
-            a[href='#'] {
-                background-color: #4CAF50;
-                border: none;
-                color: white;
-                padding: 6px 12px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                cursor: pointer;
-            }
-
-            a[href='#']:hover {
-                background-color: #3e8e41;
-            }
+           
         </style>
     </head>
     <body>

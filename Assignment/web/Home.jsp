@@ -52,7 +52,7 @@
             }
 
             /* Style for the "Add to Cart" link */
-            a[href='#'] {
+             add{
                 background-color: #4CAF50;
                 border: none;
                 color: white;
@@ -65,7 +65,7 @@
                 cursor: pointer;
             }
 
-            a[href='#']:hover {
+            add :hover {
                 background-color: #3e8e41;
             }
         </style>
@@ -94,7 +94,7 @@
                     <td>${p.price} $</td>
                     <td>${p.description}<td>
                     <td>
-                        <a href="#">Add to Cart</a>
+                        <a href="listcart" class="add">Add to Cart</a>
                     </td>
                 </tr>
             </c:forEach>

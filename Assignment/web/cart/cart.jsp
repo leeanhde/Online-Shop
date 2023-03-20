@@ -54,23 +54,7 @@
                 background-color: #f2f2f2;
             }
 
-            /* Style for the "Add to Cart" link */
-            a[href='#'] {
-                background-color: #4CAF50;
-                border: none;
-                color: white;
-                padding: 6px 12px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                cursor: pointer;
-            }
-
-            a[href='#']:hover {
-                background-color: #3e8e41;
-            }
+           
         </style>
     </head>
     <body>
@@ -82,6 +66,7 @@
             </ul>
 
             <h1>All Cart Items</h1>
+            
             <table border="1">
                 <thead>
                     <tr>
@@ -90,12 +75,13 @@
                         <th>Product Name</th>
                         <th>Amount</th>
                         <th>Price</th>
-                        <th>Total Price</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                 <c:forEach items="${listC}" var="c" varStatus="loop">
+                    <c:if test="${c.user_id == 1}">
                     <tr>
                         <td>${c.user_id}</td>
                         <td>${c.product_id}</td>
@@ -110,15 +96,16 @@
                         <td>
                             <c:forEach items="${requestScope.products}" var="p">
                                 <c:if test="${c.product_id == p.product_id}">
-                                    ${p.price}
+                                    ${p.price} $
                                 </c:if>
                             </c:forEach>
                         </td>
-                        <td>${totalPrice}</td>
+                        
                     </tr>
-
+                    </c:if>
                 </c:forEach>
             </tbody>
+            <th>Total Price: </th>
         </table>
 
         <jsp:include page="../footer.jsp"></jsp:include>
