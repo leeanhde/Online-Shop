@@ -11,33 +11,45 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Insert</title>
         <style>
-            form input[type="number"],
-            form input[type="text"] {
-                border: 1px solid #ccc;
-                padding: 8px;
-                font-size: 14px;
-                margin-bottom: 10px;
+            /* Apply a margin to the form and center it horizontally */
+            form {
+                margin: 0 auto;
+                width: 50%;
             }
 
-            form input[type="submit"] {
-                background-color: #008CBA;
-                color: #fff;
+            /* Style the input fields */
+            input[type="number"],
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                box-sizing: border-box;
                 border: none;
-                padding: 10px 16px;
-                font-size: 16px;
-                cursor: pointer;
-                border-radius: 4px;
+                border-bottom: 2px solid gray;
+                outline: none;
             }
+
+            /* Style the submit button */
+            input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            /* Change the color of the button when hovered */
+            input[type="submit"]:hover {
+                background-color: #3e8e41;
+            }
+
         </style>
     </head>
     <body>
 
-        <ul>
-            <li>
-                <a href="../Home.jsp">Trang Chủ</a>
-            </li>
-            <jsp:include page="../menu.jsp"></jsp:include>
-            </ul>
+        <jsp:include page="../menu.jsp"></jsp:include>
+
             <form action="insert" method="POST">
                 Product ID: <input type="number" name="product_id"><br>
                 Categories ID: <input type="number" name="c_id"><br>

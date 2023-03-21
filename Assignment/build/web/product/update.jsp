@@ -11,25 +11,45 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Update</title>
         <style>
-            a {
-                color: red;
-            }
-            .product-info {
-                font-size: 14px;
+            /* Apply a margin to the form and center it horizontally */
+            form {
+                margin: 0 auto;
+                width: 50%;
             }
 
-            #product-name {
-                font-weight: bold;
+            /* Style the input fields */
+            input[type="number"],
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                box-sizing: border-box;
+                border: none;
+                border-bottom: 2px solid gray;
+                outline: none;
             }
+
+            /* Style the submit button */
+            input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            /* Change the color of the button when hovered */
+            input[type="submit"]:hover {
+                background-color: #3e8e41;
+            }
+
         </style>
     </head>
     <body>
-        <ul>
-            <li>
-                <a href="home">Trang Chủ</a>
-            </li>
-            <jsp:include page="menu.jsp"></jsp:include>
-            </ul>
+
+        <jsp:include page="../menu.jsp"></jsp:include>
+
             <form action="update" method="POST">
                 Product ID: <input type="number" name="product_id" value="${param.product_id}"><br>
             Product Name: <input type="text" name="product_name"><br>

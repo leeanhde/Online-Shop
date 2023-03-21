@@ -14,7 +14,7 @@
         <meta charset="UTF-8">
         <title>All Cart Items</title>
         <style>
-           
+
             table {
                 border-collapse: collapse;
                 width: 100%;
@@ -39,10 +39,10 @@
         </style>
     </head>
     <body>
-        
-           
-            <jsp:include page="../menu.jsp"></jsp:include>
-            
+
+
+        <jsp:include page="../menu.jsp"></jsp:include>
+
             <h1>All Cart Items</h1>
             <table border="1">
                 <thead>
@@ -57,37 +57,39 @@
                 </thead>
                 <tbody>
                 <c:forEach items="${listC}" var="c" varStatus="loop">
-                    <c:if test="${c.user_id == 2}">
-                        <tr>
-                            <td>${c.user_id}</td>
-                            <td>${c.product_id}</td>
-                            <td>
-                                <c:forEach items="${requestScope.products}" var="p">
-                                    <c:if test="${c.product_id == p.product_id}">
-                                        ${p.product_name}
-                                    </c:if>
-                                </c:forEach>
-                            </td>
-                            <td>${c.amount}</td>
-                            <td>
-                                <c:forEach items="${requestScope.products}" var="p">
-                                    <c:if test="${c.product_id == p.product_id}">
-                                        ${p.price} $
-                                    </c:if>
-                                </c:forEach>
-                            </td>
+                    <%--<c:if test="${c.user_id == 2}">--%>
+                    <tr>
+                        <td>${c.user_id}</td>
+                        <td>${c.product_id}</td>
+                        <td>
+                            <c:forEach items="${requestScope.products}" var="p">
+                                <c:if test="${c.product_id == p.product_id}">
+                                    ${p.product_name}
+                                </c:if>
+                            </c:forEach>
+                        </td>
+                        <td>${c.amount}</td>
+                        <td>
+                            <c:forEach items="${requestScope.products}" var="p">
+                                <c:if test="${c.product_id == p.product_id}">
+                                    ${p.price} $
+                                </c:if>
+                            </c:forEach>
+                        </td>
 
-                        </tr>
-                    </c:if>
+                    </tr>
+                    <%--</c:if>--%>
                 </c:forEach>
             </tbody>
-            <th>Total Price: 
-                <c:forEach items="${listC}" var="c">
-                    <c:forEach items="${products}" var="p">
+            <tr>
+                <th>Total Price: 
+                    <c:forEach items="${listC}" var="c">
+                        <c:forEach items="${products}" var="p">
 
+                        </c:forEach>
                     </c:forEach>
-                </c:forEach>
-            </th>
+                </th>
+            </tr>
         </table>
         <jsp:include page="../footer.jsp"></jsp:include>
     </body>

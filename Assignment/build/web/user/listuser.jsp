@@ -60,14 +60,14 @@
         <jsp:include page="../menu.jsp"></jsp:include>
 
 
-            <table border = 1px>
-                <td>User ID</td>
-                <td>User Name</td>
-                <td>Password</td>
-                <td>Email</td>
-                <td>Phone</td>
-                <td></td>
-                <td></td>
+        <table border = 1px>
+            <td>User ID</td>
+            <td>User Name</td>
+            <td>Password</td>
+            <td>Email</td>
+            <td>Phone</td>
+            <td></td>
+            <td></td>
             <c:forEach items="${requestScope.users}" var="u">
                 <tr>
                     <td>${u.user_id}</td>
