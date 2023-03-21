@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -24,7 +25,8 @@ public class UpdateUser extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("user_id"));
         UserDBContext db = new UserDBContext();
         User user = db.get(id);
-
+        ArrayList<User> list = db.list();
+        request.setAttribute("users", list);
         request.setAttribute("user", user);
         request.getRequestDispatcher("../user/updateuser.jsp").forward(request, response);
     }
