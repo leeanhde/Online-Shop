@@ -36,16 +36,19 @@
 
 <div id="menu">
     <ul>
+        <li>
+            <a href="home">Trang Chủ</a>
+        </li>
         <li><a href="listcart">Giỏ Hàng</a></li>
             <c:if test="${sessionScope.acc.isAdmin == 1}">
             <li><a href="product/list">Quản lý Sản phẩm</a></li>
             </c:if>
-            
-            <c:if test="${sessionScope.acc.isAdmin == 1}">
+
+        <c:if test="${sessionScope.acc.isAdmin == 1}">
             <li><a href="user/listuser">Quản lý Nhân viên</a></li>
             </c:if>
-            
-            <c:if test="${sessionScope.acc != null}">
+
+        <c:if test="${sessionScope.acc != null}">
             <li><a href="#">Hello ${sessionScope.acc.name}</a></li>
             <li><a href="logout">Đăng xuất</a></li>
             </c:if>

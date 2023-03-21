@@ -51,17 +51,14 @@
                 background-color: #f2f2f2;
             }
 
-           
+
         </style>
     </head>
     <body>
 
-        <ul>
-            <li>
-                <a href="../Home.jsp">Trang Chủ</a>
-            </li>
-            <jsp:include page="../menu.jsp"></jsp:include>
-            </ul>
+
+        <jsp:include page="../menu.jsp"></jsp:include>
+
 
             <table border = 1px>
                 <td>User ID</td>

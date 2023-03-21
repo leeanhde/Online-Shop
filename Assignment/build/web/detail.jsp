@@ -12,13 +12,6 @@
         <title>Detail Product</title>
         <style>
             /* Style for ul and li elements */
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                background-color: #333;
-            }
 
             li {
                 float: left;
@@ -71,12 +64,10 @@
         </style>
     </head>
     <body>
-        <ul>
-            <li>
-                <a href="home">Trang Chủ</a>
-            </li>
-            <jsp:include page="menu.jsp"></jsp:include>
-            </ul>
+
+
+        <jsp:include page="menu.jsp"></jsp:include>
+
 
             <table border = 1px>
                 <div>

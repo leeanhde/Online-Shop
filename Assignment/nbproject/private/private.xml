@@ -3,9 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/web/menu.jsp</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/web/detail.jsp</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/src/java/Dal/ProductDBContext.java</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/web/user/listuser.jsp</file>
             <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/web/Home.jsp</file>
-            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/web/footer.jsp</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/web/cart/cart.jsp</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/web/user/updateuser.jsp</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/web/product/list.jsp</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/src/java/Controller/Cart/ListCart.java</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/src/java/Controller/Login/Login.java</file>
+            <file>file:/C:/Users/anhde/OneDrive/Documents/GitHub/AssignmentPRJ/Assignment/src/java/Controller/Product/Delete.java</file>
         </group>
     </open-files>
 </project-private>

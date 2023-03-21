@@ -12,14 +12,6 @@
         <title>Home Page</title>
         <style>
             /* Style for ul and li elements */
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                background-color: #333;
-            }
-
             li {
                 float: left;
             }
@@ -52,7 +44,7 @@
             }
 
             /* Style for the "Add to Cart" link */
-             add{
+            add{
                 background-color: #4CAF50;
                 border: none;
                 color: white;
@@ -71,12 +63,9 @@
         </style>
     </head>
     <body>
-        <ul>
-            <li>
-                <a href="home">Trang Chủ</a>
-            </li>
+        
             <jsp:include page="menu.jsp"></jsp:include>
-            </ul>
+            
             <table border = 1px>
                 <tr>
                     <td>Product Name</td>

@@ -11,62 +11,22 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Insert</title>
         <style>
-            /* Style for ul and li elements */
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                background-color: #333;
-            }
-
-            li {
-                float: left;
-            }
-
-            li a {
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-
-            li a:hover {
-                background-color: #111;
-            }
-
-            /* Style for table and td elements */
-            table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-
-            td, th {
-                border: 1px solid #ddd;
+            form input[type="number"],
+            form input[type="text"] {
+                border: 1px solid #ccc;
                 padding: 8px;
-            }
-
-            tr:nth-child(even) {
-                background-color: #f2f2f2;
-            }
-
-            /* Style for the "Add to Cart" link */
-            a[href='#'] {
-                background-color: #4CAF50;
-                border: none;
-                color: white;
-                padding: 6px 12px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
                 font-size: 14px;
-                margin: 4px 2px;
-                cursor: pointer;
+                margin-bottom: 10px;
             }
 
-            a[href='#']:hover {
-                background-color: #3e8e41;
+            form input[type="submit"] {
+                background-color: #008CBA;
+                color: #fff;
+                border: none;
+                padding: 10px 16px;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 4px;
             }
         </style>
     </head>
