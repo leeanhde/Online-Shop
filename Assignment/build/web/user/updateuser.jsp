@@ -48,7 +48,6 @@
     </head>
     <body>
         <jsp:include page="../menu.jsp"></jsp:include>
-        
         <form action="updateuser" method="post">
             User ID: <input type="text" name="user_id" value="${param.user_id}"><br>
             User Name: <input type="text" name="name"><br>
