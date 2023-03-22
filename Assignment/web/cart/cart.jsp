@@ -44,6 +44,8 @@
         <jsp:include page="../menu.jsp"></jsp:include>
 
             <h1>All Cart Items</h1>
+
+
             <table border="1">
                 <thead>
                     <tr>
@@ -57,7 +59,7 @@
                 </thead>
                 <tbody>
                 <c:forEach items="${listC}" var="c" varStatus="loop">
-                    <%--<c:if test="${c.user_id == 2}">--%>
+                    <c:if test="${c.user_id == 1}">
                     <tr>
                         <td>${c.user_id}</td>
                         <td>${c.product_id}</td>
@@ -78,16 +80,12 @@
                         </td>
 
                     </tr>
-                    <%--</c:if>--%>
+                    </c:if>
                 </c:forEach>
             </tbody>
             <tr>
                 <th>Total Price: 
-                    <c:forEach items="${listC}" var="c">
-                        <c:forEach items="${products}" var="p">
-
-                        </c:forEach>
-                    </c:forEach>
+                    
                 </th>
             </tr>
         </table>

@@ -25,7 +25,7 @@
     }
 </style>
 <footer>
-    <p>Bản quyền © 2023. Tên trang web. Mọi quyền được bảo lưu.</p>
+    <p>Bản quyền © 2023. Web Ban Dien Thoai cua toi. Mọi quyền được bảo lưu.</p>
     <p>Thông tin liên hệ</p>
     <p>Email: leede663@gmail.com</p>
     <p>Hotline: 0987654321</p>

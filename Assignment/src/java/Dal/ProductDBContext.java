@@ -4,7 +4,9 @@
  */
 package Dal;
 
+import Model.Cart;
 import Model.Product;
+import Model.User;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -181,4 +183,30 @@ public class ProductDBContext extends DBContext<Product> {
         return null;
     }
 
+    public Product totalPrice(int id) {
+
+        try {
+            String sql = "select p.product_id, p.product_name, p.price, u.user_id, c.amount,(p.price*c.amount) "
+                    + "from Product p left join Cart c on p.product_id = c.product_id left join [User] u on u.user_id = c.user_id\n"
+                    + "where u.user_id = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, id);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Product p = new Product();
+                p.setProduct_id(rs.getInt("product_id"));
+                p.setProduct_name(rs.getString("product_name"));
+                p.setPrice(rs.getInt("price"));
+                
+                User u = new User();
+                
+                return p;
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(ProductDBContext.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return null;
+    }
+
+    
 }

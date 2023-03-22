@@ -32,6 +32,7 @@ public class ListCart extends HttpServlet {
         ArrayList<Cart> listC = db.displayAllCarts();
         ProductDBContext dbp = new ProductDBContext();
         ArrayList<Product> list = dbp.list();
+        
         UserDBContext dbu = new UserDBContext();
         ArrayList<User> listU = dbu.list();
         request.setAttribute("listU", listU);

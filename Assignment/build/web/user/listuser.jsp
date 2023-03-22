@@ -10,6 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>List User</title>
+        <script>
+            function remove(id)
+            {
+                var result = confirm("are you sure?");
+                if (result)
+                    window.location.href = "delete?user_id=" + id;
+            }
+        </script>
         <style>
             /* Style for ul and li elements */
             ul {
@@ -51,13 +59,68 @@
                 background-color: #f2f2f2;
             }
 
+            #menu {
+                background-color: #333;
+                color: #fff;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+            }
+
+            #menu ul {
+                display: flex;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            #menu li {
+                margin-right: 10px;
+            }
+
+            #menu a {
+                color: #fff;
+                text-decoration: none;
+                padding: 5px;
+                border-radius: 5px;
+            }
+
+            #menu a:hover {
+                background-color: #555;
+            }
 
         </style>
     </head>
     <body>
+        <div id="menu">
+            <ul>
+                <li>
+                    <a href="../home">Trang Chủ</a>
+                </li>
+                <li><a href="../listcart">Giỏ Hàng</a></li>
+                    <c:if test="${sessionScope.acc.isAdmin == 1}">
+                    <li><a href="../product/list">Quản lý Sản phẩm</a></li>
+                    </c:if>
 
+                <c:if test="${sessionScope.acc.isAdmin == 1}">
+                    <li><a href="../user/listuser">Quản lý Nhân viên</a></li>
+                    </c:if>
 
-        <jsp:include page="../menu.jsp"></jsp:include>
+                <c:if test="${sessionScope.acc != null}">
+                    <li><a href="#">Hello ${sessionScope.acc.name}</a></li>
+
+                </c:if>
+                <li>
+                    <div id="search-container">
+                        <form action="search">
+                            <input type="text" placeholder="Search..." name="name" value="${name}">
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
 
         <table border = 1px>
@@ -79,7 +142,7 @@
                         <a href="updateuser?user_id=${u.user_id}">Edit</a>
                     </td>     
                     <td>
-                        <a href="delete?user_id=${u.user_id}">Delete</a>
+                        <a href="#" onclick="remove(${u.user_id})">Delete</a>
                     </td>
                 </tr>
             </c:forEach>

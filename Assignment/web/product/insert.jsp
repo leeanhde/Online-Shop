@@ -43,21 +43,77 @@
             input[type="submit"]:hover {
                 background-color: #3e8e41;
             }
+            #menu {
+                background-color: #333;
+                color: #fff;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+            }
 
+            #menu ul {
+                display: flex;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            #menu li {
+                margin-right: 10px;
+            }
+
+            #menu a {
+                color: #fff;
+                text-decoration: none;
+                padding: 5px;
+                border-radius: 5px;
+            }
+
+            #menu a:hover {
+                background-color: #555;
+            }
         </style>
     </head>
     <body>
 
-        <jsp:include page="../menu.jsp"></jsp:include>
+        <div id="menu">
+            <ul>
+                <li>
+                    <a href="../home">Trang Chủ</a>
+                </li>
+                <li><a href="../listcart">Giỏ Hàng</a></li>
+                <c:if test="${sessionScope.acc.isAdmin == 1}">
+                    <li><a href="../product/list">Quản lý Sản phẩm</a></li>
+                </c:if>
 
-            <form action="insert" method="POST">
-                Product ID: <input type="number" name="product_id"><br>
-                Categories ID: <input type="number" name="c_id"><br>
-                Product Name: <input type="text" name="product_name"><br>
-                Price: <input type="number" name="price"><br>
-                Description <input type="text" name="description"><br>
-                <input type="submit" value="Save">
-            </form>
+                <c:if test="${sessionScope.acc.isAdmin == 1}">
+                    <li><a href="../user/listuser">Quản lý Nhân viên</a></li>
+                </c:if>
+
+                <c:if test="${sessionScope.acc != null}">
+                    <li><a href="#">Hello ${sessionScope.acc.name}</a></li>
+
+                </c:if>
+                <li>
+                    <div id="search-container">
+                        <form action="search">
+                            <input type="text" placeholder="Search..." name="name" value="${name}">
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <form action="insert" method="POST">
+            Product ID: <input type="number" name="product_id"><br>
+            Categories ID: <input type="number" name="c_id"><br>
+            Product Name: <input type="text" name="product_name"><br>
+            Price: <input type="number" name="price"><br>
+            Description <input type="text" name="description"><br>
+            <input type="submit" value="Save">
+        </form>
         <jsp:include page="../footer.jsp"></jsp:include>
     </body>
 </html>
